@@ -1,2 +1,4 @@
-# JSHelpers
-Helper methods for JS
+# CodeHelpers
+Helper methods for different languages
+
+Write examples for the new APIs
