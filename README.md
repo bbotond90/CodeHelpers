@@ -7,6 +7,6 @@ For JavaScript
 
 There is a logger that you can disable on any level, and you can have multiple instances of it.
 
-And there is a C# kind of Linq.Where in 2 versions. One of them is returns a list of index, the other one returns a list of matched item.
+And there is a C# kind of Linq.Where in 2 versions. One of them returns a list of index, the other one returns a list of matched item.
 
 More is coming.
