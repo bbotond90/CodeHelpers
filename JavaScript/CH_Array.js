@@ -9,9 +9,9 @@
  * Helps to find a specific amount of indexes by predicate
  * @param {int} amountNr Number of elements needed
  * @param {chGetWherePredicate} predicate A function that matches the syntax bool function(sourceArrayItem)
- * @returns {getIndexesWhere.Result}
+ * @returns {chGetIndexesWhere.Result}
  */
-Array.prototype.getIndexesWhere = function getIndexesWhere(amountNr, predicate) {
+Array.prototype.chGetIndexesWhere = function chGetIndexesWhere(amountNr, predicate) {
     var sourceArray = this;
     var resultIndexes = [];
     var remained = amountNr;
@@ -23,7 +23,7 @@ Array.prototype.getIndexesWhere = function getIndexesWhere(amountNr, predicate) 
         }
     }
 
-    var result = new Array.prototype.getIndexesWhere.Result();
+    var result = new Array.prototype.chGetIndexesWhere.Result();
     result.indexes = resultIndexes;
     result.remained = remained;
 
@@ -35,7 +35,7 @@ Array.prototype.getIndexesWhere = function getIndexesWhere(amountNr, predicate) 
 * @arg {array} indexes The found indexes
 * @arg {int} remained The remaining element counter where we could not found a match
 */
-Array.prototype.getIndexesWhere.Result = function () {
+Array.prototype.chGetIndexesWhere.Result = function () {
     this.indexes = [];
     this.remained = 0;
 }
@@ -44,9 +44,9 @@ Array.prototype.getIndexesWhere.Result = function () {
  * Helps to find a specific amount of items by predicate
  * @param {int} amountNr Number of elements needed
  * @param {chGetWherePredicate} predicate A function that matches the syntax bool function(sourceArrayItem)
- * @returns {getIndexesWhere.Result}
+ * @returns {chGetIndexesWhere.Result}
  */
-Array.prototype.getItemsWhere = function getItemsWhere(amountNr, predicate) {
+Array.prototype.chGgetItemsWhere = function chGetItemsWhere(amountNr, predicate) {
     var sourceArray = this;
     var resultItems = [];
     var remained = amountNr;
@@ -58,7 +58,7 @@ Array.prototype.getItemsWhere = function getItemsWhere(amountNr, predicate) {
         }
     }
 
-    var result = new Array.prototype.getItemsWhere.Result();
+    var result = new Array.prototype.chGetItemsWhere.Result();
     result.items = resultItems;
     result.remained = remained;
 
@@ -70,7 +70,7 @@ Array.prototype.getItemsWhere = function getItemsWhere(amountNr, predicate) {
 * @arg {array} indexes The found indexes
 * @arg {int} remained The remaining element counter where we could not found a match
 */
-Array.prototype.getItemsWhere.Result = function () {
+Array.prototype.chGetItemsWhere.Result = function () {
     this.items = [];
     this.remained = 0;
 }
