@@ -46,7 +46,7 @@ Array.prototype.chGetIndexesWhere.Result = function () {
  * @param {chGetWherePredicate} predicate A function that matches the syntax bool function(sourceArrayItem)
  * @returns {chGetIndexesWhere.Result}
  */
-Array.prototype.chGgetItemsWhere = function chGetItemsWhere(amountNr, predicate) {
+Array.prototype.chGetItemsWhere = function chGetItemsWhere(amountNr, predicate) {
     var sourceArray = this;
     var resultItems = [];
     var remained = amountNr;
