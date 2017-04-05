@@ -13,20 +13,18 @@
  */
 Array.prototype.chGetIndexesWhere = function chGetIndexesWhere(amountNr, predicate) {
     var sourceArray = this;
-    var resultIndexes = [];
-    var remained = amountNr;
-
-    for (var i = 0; i < sourceArray.length || remained < 1; i++) {
-        if (predicate(sourceArray[i])) {
-            resultIndexes.push(i);
-            remained--;
-        }
-    }
 
     var result = new Array.prototype.chGetIndexesWhere.Result();
-    result.indexes = resultIndexes;
-    result.remained = remained;
+    result.remained = amountNr;
 
+    for (var i = 0; i < sourceArray.length || result.remained < 1; i++) {
+        if (predicate(sourceArray[i])) {
+            result.indexes.push(i);
+            result.found++;
+            result.remained--;
+        }
+    }
+    
     return result;
 }
 
@@ -34,10 +32,12 @@ Array.prototype.chGetIndexesWhere = function chGetIndexesWhere(amountNr, predica
 * Return obejct model for getIndexesWhere
 * @arg {array} indexes The found indexes
 * @arg {int} remained The remaining element counter where we could not found a match
+* @arg {int} found Number of matched items
 */
 Array.prototype.chGetIndexesWhere.Result = function () {
     this.indexes = [];
     this.remained = 0;
+    this.found = 0;
 }
 
 /**
@@ -48,19 +48,17 @@ Array.prototype.chGetIndexesWhere.Result = function () {
  */
 Array.prototype.chGetItemsWhere = function chGetItemsWhere(amountNr, predicate) {
     var sourceArray = this;
-    var resultItems = [];
-    var remained = amountNr;
-
-    for (var i = 0; i < sourceArray.length || remained < 1; i++) {
-        if (predicate(sourceArray[i])) {
-            resultItems.push(sourceArray[i]);
-            remained--;
-        }
-    }
 
     var result = new Array.prototype.chGetItemsWhere.Result();
-    result.items = resultItems;
-    result.remained = remained;
+    result.remained = amountNr;
+
+    for (var i = 0; i < sourceArray.length || result.remained < 1; i++) {
+        if (predicate(sourceArray[i])) {
+            result.items.push(sourceArray[i]);
+            result.found++;
+            result.remained--;
+        }
+    }
 
     return result;
 }
@@ -69,8 +67,10 @@ Array.prototype.chGetItemsWhere = function chGetItemsWhere(amountNr, predicate) 
 * Return obejct model for getItemsWhere
 * @arg {array} indexes The found indexes
 * @arg {int} remained The remaining element counter where we could not found a match
+* @arg {int} found Number of matched items
 */
 Array.prototype.chGetItemsWhere.Result = function () {
     this.items = [];
     this.remained = 0;
+    this.found = 0;
 }
