@@ -18,7 +18,8 @@ Array.prototype.chGetIndexesWhere = function chGetIndexesWhere(amountNr, predica
     var result = new Array.prototype.chGetIndexesWhere.Result();
     result.remained = amountNr;
 
-    for (var i = 0; i < sourceArray.length || result.remained < 1; i++) {
+    for (var i = 0; i < sourceArray.length; i++) {
+        if (result.remained < 1) break;
         if (predicate(i, sourceArray[i])) {
             result.indexes.push(i);
             result.found++;
@@ -53,7 +54,8 @@ Array.prototype.chGetItemsWhere = function chGetItemsWhere(amountNr, predicate) 
     var result = new Array.prototype.chGetItemsWhere.Result();
     result.remained = amountNr;
 
-    for (var i = 0; i < sourceArray.length || result.remained < 1; i++) {
+    for (var i = 0; i < sourceArray.length; i++) {
+        if (result.remained < 1) break;
         if (predicate(i, sourceArray[i])) {
             result.items.push(sourceArray[i]);
             result.found++;
