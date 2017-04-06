@@ -1,6 +1,7 @@
 /**
 * Predicate for Array.prototype.get*Where
 * @callback chGetWherePredicate
+* @param {int} index
 * @param {typeOfArrayElement} element
 * @return {bool}
 */
@@ -18,7 +19,7 @@ Array.prototype.chGetIndexesWhere = function chGetIndexesWhere(amountNr, predica
     result.remained = amountNr;
 
     for (var i = 0; i < sourceArray.length || result.remained < 1; i++) {
-        if (predicate(sourceArray[i])) {
+        if (predicate(i, sourceArray[i])) {
             result.indexes.push(i);
             result.found++;
             result.remained--;
@@ -43,7 +44,7 @@ Array.prototype.chGetIndexesWhere.Result = function () {
 /**
  * Helps to find a specific amount of items by predicate
  * @param {int} amountNr Number of elements needed
- * @param {chGetWherePredicate} predicate A function that matches the syntax bool function(sourceArrayItem)
+ * @param {chGetWherePredicate} predicate A function that matches the syntax bool function(index, sourceArrayItem)
  * @returns {chGetIndexesWhere.Result}
  */
 Array.prototype.chGetItemsWhere = function chGetItemsWhere(amountNr, predicate) {
@@ -53,7 +54,7 @@ Array.prototype.chGetItemsWhere = function chGetItemsWhere(amountNr, predicate) 
     result.remained = amountNr;
 
     for (var i = 0; i < sourceArray.length || result.remained < 1; i++) {
-        if (predicate(sourceArray[i])) {
+        if (predicate(i, sourceArray[i])) {
             result.items.push(sourceArray[i]);
             result.found++;
             result.remained--;
