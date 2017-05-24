@@ -68,7 +68,7 @@ Array.prototype.chGetItemsWhere = function chGetItemsWhere(amountNr, predicate) 
 
 /**
 * Return obejct model for getItemsWhere
-* @arg {array} indexes The found indexes
+* @arg {array} items The found items
 * @arg {int} remained The remaining element counter where we could not found a match
 * @arg {int} found Number of matched items
 */
